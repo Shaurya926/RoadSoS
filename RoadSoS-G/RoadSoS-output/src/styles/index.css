@@ -1,0 +1,331 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy-950 text-white font-body;
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(135deg, #020818 0%, #0a1f55 100%);
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .sos-glow {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.5), 0 0 60px rgba(239, 68, 68, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .sos-glow:hover {
+    box-shadow: 0 0 60px rgba(239, 68, 68, 0.6), 0 0 90px rgba(239, 68, 68, 0.3);
+  }
+
+  .cyan-glow {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+
+  .card-glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    transition: all 0.3s ease;
+  }
+
+  .card-glass:hover {
+    @apply bg-white/10 border-white/30;
+    box-shadow: 0 8px 32px rgba(34, 211, 238, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .card-premium {
+    @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl;
+    box-shadow: 0 8px 32px rgba(34, 211, 238, 0.15);
+  }
+
+  .card-premium:hover {
+    @apply border-white/40;
+    box-shadow: 0 12px 48px rgba(34, 211, 238, 0.25);
+    transform: translateY(-6px);
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-300 hover:to-cyan-400 text-navy-950 font-display font-bold px-8 py-3 rounded-xl transition-all duration-300;
+    box-shadow: 0 4px 20px rgba(34, 211, 238, 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 8px 32px rgba(34, 211, 238, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    @apply bg-white/5 hover:bg-white/10 border border-white/20 hover:border-white/40 text-white font-medium px-8 py-3 rounded-xl transition-all duration-300;
+  }
+
+  .btn-secondary:hover {
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan-400 via-accent-blue to-accent-purple text-transparent bg-clip-text;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-bold mb-4;
+  }
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes floatSlow {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(34, 211, 238, 0.4);
+    }
+  }
+
+  @keyframes emergency-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(239, 68, 68, 0.6);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  .animate-float {
+    animation: floatSlow 4s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-emergency-pulse {
+    animation: emergency-pulse 2s ease-in-out infinite;
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(20px);
+  }
+
+  .backdrop-blur-2xl {
+    backdrop-filter: blur(40px);
+  }
+
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-emergency {
+    @apply bg-gradient-to-r from-emergency to-red-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-premium {
+    @apply bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent;
+  }
+
+  /* Glassmorphism utilities */
+  .glass-sm {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-md {
+    @apply bg-white/10 backdrop-blur-xl border border-white/15;
+  }
+
+  .glass-lg {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-dark {
+    background: linear-gradient(135deg, #020818 0%, #0a1f55 100%);
+  }
+
+  .gradient-cyan-glow {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.15) 0%, rgba(34, 211, 238, 0.05) 100%);
+  }
+
+  .gradient-emergency-glow {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%);
+  }
+
+  /* Glow shadows */
+  .shadow-glow-cyan {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+  }
+
+  .shadow-glow-emergency {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);
+  }
+
+  .shadow-emergency-glow-lg {
+    box-shadow: 0 0 60px rgba(239, 68, 68, 0.2);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .hover-lift-sm {
+    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-0.5;
+  }
+}
+
+
+/* Leaflet map customization for dark theme */
+.leaflet-container {
+  background-color: #020818;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #040f2b;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  color: white;
+}
+
+.leaflet-popup-close-button {
+  color: #22d3ee;
+}
+
+.leaflet-popup-close-button:hover {
+  color: #06b6d4;
+}
+
+.leaflet-control {
+  background-color: rgba(4, 15, 43, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  color: #22d3ee;
+  background-color: rgba(4, 15, 43, 0.9);
+}
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover {
+  background-color: rgba(34, 211, 238, 0.2);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #22d3ee;
+}
